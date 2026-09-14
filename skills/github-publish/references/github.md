@@ -35,6 +35,8 @@ gh repo view --json repositoryTopics --jq '[.repositoryTopics[].name]'
 
 A site, Pages, or a registry page (crates.io, npm, Modrinth). With none of them, leave it empty: a link to the repository itself adds nothing.
 
+When the repository has Pages, the homepage is the Pages URL, unless it already points to the project's own domain. Set it as soon as the site answers, in the same run that enabled Pages.
+
 ```bash
 gh repo edit --homepage "https://OWNER.github.io/REPO/"
 ```
@@ -107,7 +109,7 @@ gh repo edit --visibility public --accept-visibility-change-consequences
 ### After going public
 
 1. Private vulnerability reporting, secret scanning with push protection, read-only `GITHUB_TOKEN` (section Security).
-2. Pages, if chosen (`references/release.md`).
+2. Pages, if chosen (`references/release.md`), then the homepage set to the Pages URL (section Homepage).
 3. Run `audit.py` again: badges and `required` fields in issue forms start working only now.
 4. Open the repository page and look at the README, with a browser skill if one is installed.
 

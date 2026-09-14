@@ -119,6 +119,8 @@ Binaries for several platforms (Go and Rust CLIs): use the tool the ecosystem al
 
 A free plan serves Pages only from public repositories, and a Pages site is public even when a paid plan serves it from a private repository. Project site URL: `https://OWNER.github.io/REPO/`.
 
+In both variants below, once the site answers, set the repository homepage (the Website field in About) to the Pages URL with `gh repo edit --homepage "https://OWNER.github.io/REPO/"` and check it with `gh repo view --json homepageUrl`. Keep an existing homepage only when it already points to the project's own domain.
+
 ### README as the site
 
 No new files. GitHub builds the branch with Jekyll and uses `README.md` as the entry page when the root has no `index.html` or `index.md`. Relative links to other Markdown files keep working.
@@ -130,7 +132,6 @@ gh api repos/{owner}/{repo}/pages/builds/latest --jq '.status, .error.message'
 
 - A `.nojekyll` file in the root turns this off: the README is then served as a raw file. Report it instead of deleting the file.
 - Jekyll fails on Liquid syntax (`{{ }}`, `{% %}`) in Markdown files. If the build fails, show the error. Adding a `_config.yml` with `exclude` needs the user's consent.
-- After the build succeeds, set the homepage to the Pages URL (`references/github.md`).
 
 ### A static site the project already has
 

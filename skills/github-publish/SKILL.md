@@ -98,7 +98,7 @@ Commands and limits are in `references/github.md`. Apply only the approved rows,
 
 ### 8. Release and Pages
 
-Only if chosen in step 4, and only after the new files are on GitHub (committed and pushed by the user, or at their request). Steps are in `references/release.md`. A release is outward-facing: confirm the tag, title and assets right before `gh release create`.
+Only if chosen in step 4, and only after the new files are on GitHub (committed and pushed by the user, or at their request). Steps are in `references/release.md`. A release is outward-facing: confirm the tag, title and assets right before `gh release create`. When the Pages site answers, set the repository homepage (the Website field) to its URL, unless the homepage already points to the project's own domain.
 
 ### 9. Verify and report
 

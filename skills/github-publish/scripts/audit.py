@@ -494,7 +494,14 @@ def check_github(slug, readme_text, license_ids, version):
     topics = repo.get("topics") or []
     add(section, "Topics", "ok" if len(topics) >= 5 else ("warn" if topics else "missing"),
         f"{len(topics)}: " + ", ".join(topics))
-    add(section, "Homepage", "ok" if repo.get("homepage") else "optional", repo.get("homepage") or "")
+    pages = gh_json(f"repos/{slug}/pages")
+    homepage = repo.get("homepage") or ""
+    if homepage:
+        add(section, "Homepage", "ok", homepage)
+    elif pages:
+        add(section, "Homepage", "missing", f"Pages is enabled, set it to {pages.get('html_url')}")
+    else:
+        add(section, "Homepage", "optional", "")
 
     spdx = (repo.get("license") or {}).get("spdx_id")
     known = spdx and spdx != "NOASSERTION"
@@ -517,7 +524,6 @@ def check_github(slug, readme_text, license_ids, version):
     if version and tag and tag.lstrip("v") != version:
         add(section, "Latest release matches version", "warn", f"release {tag}, manifest {version}")
 
-    pages = gh_json(f"repos/{slug}/pages")
     if pages:
         source = pages.get("source") or {}
         add(section, "GitHub Pages", "info",
