@@ -82,7 +82,7 @@ A narrow request ("only the README", "just add topics") shrinks the plan to it. 
 
 Order: LICENSE, README, SECURITY, issue forms, CI, CHANGELOG, `.gitignore` additions, release workflow, Pages workflow.
 
-- README: `references/readme.md`.
+- README: `references/readme.md`. Before moving on, check it against the section Easy to scan: short one-line bullets, varied section shapes, no inventory of internals.
 - LICENSE: `references/licenses.md`, section Writing the file.
 - SECURITY, issue forms, CHANGELOG, `.gitignore`, manifest metadata: `references/files.md`. Templates are in `${CLAUDE_SKILL_DIR}/assets/`. Copy them and fill with facts instead of writing new ones.
 - CI, release, Pages and Dependabot: `references/release.md`.

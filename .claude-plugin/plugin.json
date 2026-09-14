@@ -1,6 +1,6 @@
 {
   "name": "github-publish",
-  "description": "Publishes a project on GitHub the way well-kept popular repositories look: leak scan, audit, README, LICENSE, SECURITY, issue forms, CI, CHANGELOG, description and topics, security settings, releases and GitHub Pages.",
+  "description": "Checks a project for leaked secrets, adds the missing repository files and publishes it on GitHub.",
   "author": {
     "name": "Rodion Masalov",
     "url": "https://github.com/byrodi"

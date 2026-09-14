@@ -45,6 +45,18 @@ A badge appears only when the thing behind it exists: a workflow with that file 
 - A terminal GIF is recorded with [vhs](https://github.com/charmbracelet/vhs) or asciinema with agg by someone who can run the program. When nobody can, it is a manual step in the report.
 - A large screenshot gallery goes into `<details>` at the end (gitea).
 
+## Easy to scan
+
+Visitors scan a README: headings, the first words of each bullet, code blocks. A page of same-shaped dense bullets reads as a wall even when every sentence is true.
+
+- Write what the reader gets, not an inventory of the internals. Every check, file name, flag and supported format belongs in `--help`, docs or the skill's own files.
+- A bullet is one line of about 12 words at most. When it needs a second sentence, split it into two points or drop the detail.
+- No enumerations in parentheses inside bullets, such as "(MIT, Apache-2.0, BSD)". No two bullets that say the same thing in other words.
+- Highlights or Features: 3 to 6 bullets. More than that is a docs page.
+- Vary the shape. A tool with a workflow gets a numbered list of 3 to 5 steps, capabilities get a short bullet list, commands get a code block, a table appears only for a real comparison. Two long lists in a row read as one.
+- The intro under the tagline is one or two sentences. Other paragraphs stay under three sentences.
+- Check: read only the headings and the first three words of each bullet. If that does not show what the project does and how to start, rewrite before the prose pass.
+
 ## Skeletons by project type
 
 Drop sections that have no facts behind them. Keep the order.
@@ -61,7 +73,7 @@ One-line tagline.
 ![Demo of name doing X](.github/demo.gif)
 
 ## Highlights
-- 4 to 8 bullets, each a concrete capability
+- 3 to 6 one-line bullets, each a concrete capability
 
 ## Installation
 <!-- only channels that exist: release binaries, brew, cargo/go install, winget/scoop, distro packages -->
@@ -158,19 +170,26 @@ Build the commands table from `plugin.yml` or `paper-plugin.yml` and the command
 ```markdown
 # name
 
-One paragraph: what the skill does and when the agent picks it up.
+One-line tagline.
 
-## Features
+One or two sentences: when the agent picks the skill up and what it leaves alone.
+
+## How it works
+<!-- 3 to 5 numbered steps, one line each, for a skill with a workflow -->
+
+## What you get
+<!-- 3 to 6 one-line bullets, outcomes for the user, not the files or checks behind them -->
+
 ## Usage
-<!-- slash command, 3 or 4 real trigger phrases, what the skill does not do -->
+<!-- slash command and 2 or 3 real trigger phrases -->
 
-## Install for Claude Code
-## Install for Codex
-## Repository layout
-<!-- tree with one-line comments -->
+## Install
+<!-- Claude Code and Codex, one short code block each -->
 
 ## Credits and license
 ```
+
+A repository layout tree only when readers are expected to edit the skill's files. The reference files already describe themselves.
 
 ## Bottom of the page
 
@@ -182,6 +201,7 @@ One paragraph: what the skill does and when the agent picks it up.
 
 - A command that is not in the manifest, Makefile or CI and did not pass locally.
 - A feature that cannot be shown in code. Keep the file or function behind every Highlights bullet in the plan, not in the README.
+- A Features list that inventories internals: every check, file, flag or format, bullets two or three lines long.
 - Marketing words: `blazing fast`, `powerful`, `seamless`, `robust`, `cutting-edge`, `next-generation`. Speed is shown with a number or a chart.
 - Emoji in headings or bullets, a "Table of Contents" in a short README (GitHub builds an outline itself), star history, "Made with love".
 - Absolute links to files of the same repository. Relative links survive renames and forks.

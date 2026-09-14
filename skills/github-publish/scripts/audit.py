@@ -21,6 +21,7 @@ from pathlib import Path
 ROWS = []
 COMMUNITY_DIRS = (".github", ".", "docs")
 FIRST_SCREEN = 60
+BULLET_WORDS = 25
 SIZE_WARN = 5 * 1024 * 1024
 
 
@@ -295,6 +296,15 @@ def check_readme(readme):
     no_alt += sum(1 for tag in re.findall(r"<img\b[^>]*>", text, re.I) if not re.search(r"\balt\s*=\s*\"[^\"]+\"", tag, re.I))
     if no_alt:
         add(section, "Image alt text", "warn", f"{no_alt} image(s) without alt")
+
+    in_fence, long_bullets = False, 0
+    for ln in lines:
+        if ln.lstrip().startswith(("```", "~~~")):
+            in_fence = not in_fence
+        elif not in_fence and re.match(r"\s*(?:[-*+]|\d+\.)\s+\S", ln) and len(ln.split()) > BULLET_WORDS:
+            long_bullets += 1
+    if long_bullets:
+        add(section, "Long bullets", "warn", f"{long_bullets} over {BULLET_WORDS} words, keep bullets to one line")
 
 
 def check_docs(root, found):
