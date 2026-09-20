@@ -1,5 +1,6 @@
 ---
 name: github-publish
+model: sonnet
 license: MIT
 description: Publishes a project on GitHub in the shape of well-kept popular repositories. Scans for leaked secrets, audits the repo, asks about visibility, GitHub Pages, a release and the license (explaining permissive, copyleft, source-available and all-rights-reserved options), then writes the README, LICENSE, SECURITY, issue forms, CI and CHANGELOG, fills the About section (description, topics, homepage), turns on security settings, creates the release and deploys Pages. Use when "publish this repo on GitHub", "push the project to GitHub", "polish the repository", "prepare it for release", "write a README and add topics", "make it ready for GitHub", "which license should this project use", "add a license that forbids reselling", or before a private repo goes public. Do NOT use for writing project documentation in docs/, changing project code or build logic, publishing to package registries, or employer repositories.
 ---
