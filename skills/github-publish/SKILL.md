@@ -60,14 +60,14 @@ The GitHub Community Standards percentage is not a goal. It ignores YAML issue f
 
 ### 4. Ask and plan
 
-Ask the decisions that cannot be read from the project in one AskUserQuestion call:
+Ask the decisions that cannot be read from the project in one question-tool call (`AskUserQuestion` in Claude Code, `ask_user_question` in pi):
 
 - Visibility: public or private. For an existing private repository, whether it should become public.
 - GitHub Pages: none, the README as a site, or a static site the project already has (`references/release.md`, section Pages). A free plan serves Pages only from public repositories, say so when the answer is private.
 - Release: create one now for the current version, add a workflow that releases on every `v*` tag, both, or none.
 - License, when the project has none, when its license is unrecognized, or when the user asks to choose one. Collect the facts first (what ships, dependency licenses, history, authors), then ask what other people may do with the code: anything, anything with changes kept open, use without resale or a competing product, or nothing. Recommend the option the facts support and drop the ones they rule out. `references/licenses.md` has the questions, the licenses in each family and the dependency conflicts.
 
-When the license answer leaves more than one candidate, ask a second AskUserQuestion with 2 to 4 concrete licenses from that family, recommendation first, each with one line on what it allows and forbids.
+When the license answer leaves more than one candidate, ask a second question with 2 to 4 concrete licenses from that family, recommendation first, each with one line on what it allows and forbids.
 
 Then show one plan table with three groups:
 
